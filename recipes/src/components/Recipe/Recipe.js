@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
-import axios from 'axios';
+import axios from 'axios'; 
+import {Link} from 'react-router-dom';
 import {useParams} from 'react-router-dom';
+import './Recipe.scss';
 
 function Recipe() {
   const {id} = useParams()
@@ -11,14 +13,14 @@ function Recipe() {
   }, [id])
   return (
     <React.Fragment>
+      <Link className="home" to="/">Return Home</Link>
       {current && 
-        <div>
+        <div className="recipe">
           <h2>{current.strMeal}</h2>
-          <p>{current.strCategory}</p>
-          {current.strYoutube ? <iframe width="560" height="315" 
+          {current.strYoutube ? <iframe className="video" width="560" height="315" 
           src={`https://www.youtube.com/embed/${current.strYoutube.split("=")[1]}`} 
-          title={current.strMeal} frameborder="0" allow="accelerometer; autoplay; encrypted-media; 
-          gyroscope; picture-in-picture" allowfullscreen></iframe> : <img src={current.strMealThumb}/> }
+          title={current.strMeal} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; 
+          gyroscope; picture-in-picture" allowfullscreen></iframe> : <img alt="recipe" src={current.strMealThumb}/> }
           <p>{current.strInstructions}</p>
         </div>
       }

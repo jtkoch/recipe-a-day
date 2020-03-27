@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react'
-import Recipe from '../Recipe/Recipe.js';
 import RecipeCard from '../RecipeCard/RecipeCard.js';
 import './Landing.scss';
 import {Link} from 'react-router-dom';
